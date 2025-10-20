@@ -1,0 +1,23 @@
+
+<select 
+  class="form-select" 
+  aria-label="Default select example" 
+  [(ngModel)]="SelectedID" 
+  (ngModelChange)="SelectedID = +$event" >   <!-- ✅ مهم لتحويل القيمة إلى رقم -->
+  <option [value]="cat.id" *ngFor="let cat of CatList">
+    {{cat.name}}
+  </option>
+</select>
+
+
+<!-- <h1>{{SelectedID}}</h1> -->
+
+<app-order [SendCatId]="SelectedID" (NewTotalPrice)="OnTotalPrice($event)"></app-order>
+
+<!-- <app-product [SendCatId]="SelectedID" (NewTotalPrice)="OnTotalPrice($event)"></app-product> -->
+
+<!-- <app-product [SendCatId]="SelectedID"></app-product> -->
+
+    <h2 >Total Price: {{ total }}</h2>
+
+

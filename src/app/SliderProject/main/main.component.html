@@ -1,0 +1,15 @@
+<div class="home-container">
+  <img [src]="images[currentIndex].src" class="main-img " height="200px" alt="slider image" />
+
+  <div class="buttons">
+  <div class="first-button">
+    <button (click)="prevImage()">Previous</button>
+    <i class="fa fa-info-circle icon" (click)="toggleDescription()"></i>
+  </div>
+
+  <button (click)="nextImage()">Next</button>
+  <button (click)="startSlider()">Start Slider</button>
+  <button (click)="stopSlider()">Stop</button>
+</div>
+
+<p *ngIf="showDesc">{{ images[currentIndex].desc }}</p>

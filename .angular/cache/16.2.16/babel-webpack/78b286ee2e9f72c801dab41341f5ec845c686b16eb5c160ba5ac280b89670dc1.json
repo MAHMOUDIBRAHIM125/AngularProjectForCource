@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class StoreData {}","map":{"version":3,"names":["StoreData"],"sources":["C:\\Users\\Mahmoud\\source\\repos\\DEMODAY2\\src\\app\\Models\\store-data.ts"],"sourcesContent":["export class StoreData {\n}\n"],"mappings":"AAAA,OAAM,MAAOA,SAAS","ignoreList":[]},"metadata":{},"sourceType":"module","externalDependencies":[]}
