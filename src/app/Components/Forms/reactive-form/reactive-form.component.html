@@ -1,0 +1,82 @@
+<form action="" [formGroup]="userForm" (ngSubmit)="submit()">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="FullName" formControlName="fullName">
+  <label for="floatingInput">Full Name</label>
+    <div [hidden]="fullName?.valid||fullName?.untouched">
+        <small class="alert alert-danger" *ngIf="fullName?.errors?.['required']">
+                FullName is required
+        </small>
+        <small class=" alert alert-danger" *ngIf="fullName?.errors?.['pattern']">
+                FullName must be 3 Letters only the {{fullName?.errors?.['pattern'].actualValue}} doesn't match
+        </small>
+      </div>
+</div>
+<div class="form-floating mb-3">
+  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+  <label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="PhoneNumber" formControlName="phoneNum">
+  <label for="floatingInput">Phone Number</label>
+</div>
+<div formGroupName="address">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="City" formControlName="city">
+  <label for="floatingInput">City</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Street" formControlName="street">
+  <label for="floatingInput">Street</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="PostalCode" formControlName="postalcode">
+  <label for="floatingInput">PostalCode</label>
+</div>
+</div>
+<div class="form-floating mb-3">
+  <input type="password" class="form-control" id="floatingInput" placeholder="Password" formControlName="password">
+  <label for="floatingInput">Password</label>
+          <div [hidden]="password?.valid||password?.untouched">
+            <small class="alert alert-danger" *ngIf="password?.errors?.['required']">
+               PassWord is required 
+            </small>
+        </div>
+</div>
+<div class="form-floating mb-3">
+  <input type="password" class="form-control" id="floatingInput" placeholder="ConfirmedPassword" formControlName="confirmedPassword">
+  <label for="floatingInput">ConfirmedPassword</label>
+  <div *ngIf="(confirmedPassword?.touched && password?.touched)&&(userForm?.errors?.['UnMatchedPassWord']||confirmedPassword?.invalid)">
+            <small class="alert alert-danger" *ngIf="confirmedPassword?.errors?.['required']">
+                ConfirmedPassword is required
+            </small>
+            <small class=" alert alert-danger" *ngIf="userForm?.errors?.['UnMatchedPassWord']">
+                ConfirmedPassword must be match PassWord
+            </small>
+  </div>
+</div>
+<br>
+<h4>How can you get to know the company?</h4>
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" formControlName="referral" value="social" (change)="updateReferralValue()">
+  <label class="btn btn-outline-primary" for="btnradio1">Social</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" formControlName="referral" value="friends" (change)="updateReferralValue()">
+  <label class="btn btn-outline-primary" for="btnradio2">Friends</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" formControlName="referral" value="other" (change)="updateReferralValue()">
+  <label class="btn btn-outline-primary" for="btnradio3">Other</label>
+</div>
+<div class="form-floating mb-3" *ngIf="referral?.value==='other'">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Other" formControlName="otherreferral">
+  <label for="floatingInput">Other</label>
+        <div [hidden]="otherreferral?.valid||otherreferral?.untouched">
+            <small class="alert alert-danger" *ngIf="otherreferral?.errors?.['required']">
+               is required must add How can you get to know the company? 
+            </small>
+        </div>
+</div>
+
+<br>
+<br>
+<button class="btn btn-dark" [disabled]="userForm.invalid" style=" margin: 20px 100px;">Submit</button>
+</form>

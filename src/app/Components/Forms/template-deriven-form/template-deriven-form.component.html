@@ -1,0 +1,23 @@
+<h1>{{newPrd|json}}</h1>
+<h2>InpName : {{inpName.errors|json}}</h2>
+<form action="" (ngSubmit)="AddProduct()" #prdForm="ngForm">
+
+    <div class="form-floating mb-3" >
+        <input type="text" class="form-control" id="floatingInput" placeholder="Product_Name" [(ngModel)]="newPrd.name" #inpName="ngModel" name="name" required   pattern="[A-Za-z]{1,10}">
+        <label for="floatingInput">Product_Name</label>
+        <div [hidden]="inpName.valid||inpName.untouched">
+            <small class="alert alert-danger" [hidden]="!inpName.errors?.['required']">
+                Product Name is required
+            </small>
+            <small class=" alert alert-danger" [hidden]="!inpName.errors?.['pattern']">
+                Product Name must be until 10 Letters only
+            </small>
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingInput" placeholder="Product_Price" [(ngModel)]="newPrd.price" #inpPrice="ngModel" name="Price">
+        <label for="floatingInput">Product_Price</label>
+    </div>
+    <button class="btn btn-dark" [disabled]="prdForm.invalid">Submit</button>
+
+</form>

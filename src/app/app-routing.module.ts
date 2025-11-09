@@ -9,6 +9,9 @@ import { ProductComponent } from './Components/products/product.component';
 import { OrderComponent } from './Components/order/order.component';
 import { ShoppingComponent } from './Components/shopping/shopping.component';
 import { ShoppingDetailsComponent } from './Components/shopping-details/shopping-details.component';
+import { TemplateDerivenFormComponent } from './Components/Forms/template-deriven-form/template-deriven-form.component';
+import { ReactiveFormComponent } from './Components/Forms/reactive-form/reactive-form.component';
+import { AllUserComponent } from './Components/all-user/all-user.component';
 
   const routes: Routes = [
   // { path: '', redirectTo: '/home', pathMatch: 'full' }, // ✅ إعادة توجيه للمسار home فقط
@@ -20,6 +23,9 @@ import { ShoppingDetailsComponent } from './Components/shopping-details/shopping
   { path: 'product', component: ProductComponent},
   { path: 'product/:ID', component: OrderDetailsComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'Add', component: TemplateDerivenFormComponent },
+  { path: 'register', component: ReactiveFormComponent},
+  { path: 'users', component: AllUserComponent},
   { path: '**', component: ErrorComponent }
   ];
 

@@ -86,4 +86,10 @@ deletePrdById(PId:number):void{
   this.getAllPrds();
 }
 
+postPrd(prd:Iproduct){
+this.PrdList.push(prd);
+console.log("done");
+
+}
+
 }
