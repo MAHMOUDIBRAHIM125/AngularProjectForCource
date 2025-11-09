@@ -1,0 +1,24 @@
+<div class="container" >
+ <ng-container *ngFor="let p of filteredPrdList">
+  <div class="product-card" appLightbox>
+    <img [src]="p.thumbnail" [alt]="p.title" appLightbox>
+    <h4>{{ p.title }}</h4>
+    <p>{{ p.description }}</p>
+    <p><strong>Price:</strong> ${{ p.price}}</p>
+
+        <div [ngSwitch]="p.stock" [ngClass]="{'bg-danger':p.stock===0,'bg-warning':p.stock===1}" [ngStyle]="{color:p.stock===0?'white':'black'}">
+           <p *ngSwitchCase="0">Out Of Stock</p>
+           <p *ngSwitchCase="1">Last Item</p>
+           <p *ngSwitchDefault><strong>Stock:</strong> {{ p.stock }}</p>
+         </div>
+
+    <input type="number" class="qty-input" #itemInp min="1" [max]="p.stock" value="0"  >
+   <button class="buy-btn" (click)="OpenPrdDtail(p.id)" >See More</button>
+   <br>
+    <button class="buy-btn" (click)="Buy(p.price, +itemInp.value)" *ngIf="p.stock > 0">Buy</button>
+ 
+  </div>
+</ng-container>
+<br>
+ <h1 >Total Price is :{{Total|currency}}</h1>
+</div>

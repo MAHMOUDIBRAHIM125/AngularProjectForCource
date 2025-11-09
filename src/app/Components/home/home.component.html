@@ -1,0 +1,13 @@
+<div class="card w-100" >
+  <!-- <img src="{{storeData.img}}"  class="card-img-top   min-height " height="300" width="200"  alt="..." *ngIf="isAppear"> -->
+  <img src="{{storeData.img}}"  class="card-img-top   min-height " height="300" width="200"  alt="..." [hidden]="!isAppear"> 
+ 
+  <div class="card-body">
+    <!-- ? Interpolation / Data binding -->
+    <h5 class="card-title">{{storeData.title}}</h5>
+    <p class="card-text" *ngFor="let b of storeData.branchs">
+{{b}}
+    </p>
+    <button class="btn btn-dark" (click)="AppearPhoto()">appear photo</button>
+  </div>
+</div>

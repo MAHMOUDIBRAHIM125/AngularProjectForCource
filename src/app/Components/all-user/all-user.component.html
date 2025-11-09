@@ -1,0 +1,22 @@
+<h2 class="text-center my-4">User List</h2>
+
+<div class="container">
+  <table class="table table-striped table-bordered text-center shadow-sm">
+    <thead class="table-dark">
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phoneNum }}</td>
+        <td>{{ user.address?.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
